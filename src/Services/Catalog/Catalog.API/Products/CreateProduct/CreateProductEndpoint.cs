@@ -1,13 +1,12 @@
-﻿
-namespace Catalog.API.Products.CreateProduct
+﻿namespace Catalog.API.Products.CreateProduct
 {
     public record CreateProductRequest(string Name, List<string> Category,
         string Description, string ImageFile, decimal Price);
     public record CreateProductResponse(Guid Id);
 
-    class CreatePrductEndpont : CarterModule
+    public class CreatePrductEndpont : ICarterModule
     {
-        public override void AddRoutes(IEndpointRouteBuilder app)
+        public void AddRoutes(IEndpointRouteBuilder app)
         {
             app.MapPost("/products",
                 async (CreateProductRequest request, ISender sender) =>
