@@ -11,7 +11,7 @@ public class CatalogInitialData : IInitialData
         if (await session.Query<Product>().AnyAsync()) return;
 
         session.Store<Product>(GetPreconfiguredProducts());
-        await session.SaveChangesAsync(cancellation);
+        await session.SaveChangesAsync();
     }
 
     private static IEnumerable<Product> GetPreconfiguredProducts() => new List<Product>()

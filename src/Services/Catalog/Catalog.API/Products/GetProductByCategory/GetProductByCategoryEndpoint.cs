@@ -11,7 +11,6 @@ public class GetProductByCategoryEndpoint : ICarterModule
             async (string category, ISender sender) =>
             {
                 var result = await sender.Send(new GetProductByCategoryQuery(category));
-
                 var response = result.Adapt<GetProductByCategoryResponse>();
 
                 return Results.Ok(response);
