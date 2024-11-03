@@ -15,7 +15,7 @@ public class LoggingBehavior<TRequest, TResponse>(ILogger<LoggingBehavior<TReque
         logger.LogInformation($"[START] HANDLE REQUEST=[{typeof(TRequest).Name}] - " +
             $"RESPONSE=[{typeof(TResponse).Name}] - RequestData=[{request}]");
 
-        Stopwatch timer = new Stopwatch();
+        Stopwatch timer = new();
         timer.Start();
 
         var response = await next();
